@@ -1,0 +1,57 @@
+{
+  "fetchedAt": "2026-06-03T20:05:54.247961",
+  "dataSource": "rss",
+  "rollingDays": 90,
+  "dateRange": {
+    "from": "2026-03-05",
+    "to": "2026-06-03"
+  },
+  "totalResults": 3,
+  "results": [
+    {
+      "noticeId": "88c14801f5d739",
+      "title": "SOCOM wants to revive legacy M4 carbine with ‘hypervelocity’ cartridge",
+      "agency": "U.S. Army",
+      "type": "Procurement Signal",
+      "postedDate": "2026-06-03",
+      "deadline": "2026-06-08",
+      "naicsCode": "",
+      "link": "https://www.c4isrnet.com/industry/techwatch/2026/06/03/socom-wants-to-revive-legacy-m4-carbine-with-hypervelocity-cartridge/",
+      "matchedKeyword": "solicitation",
+      "relevance": "Low",
+      "relevanceScore": 1,
+      "source": "C4ISRNET",
+      "summary": "The elite command asked vendors to double the effective range of the M4 platform with the Hypervelocity Improved Carbine program."
+    },
+    {
+      "noticeId": "fd0adb18ed42a1",
+      "title": "US Navy selects companies for at-sea MUSV prototype testing",
+      "agency": "U.S. Navy",
+      "type": "Procurement Signal",
+      "postedDate": "2026-06-02",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.defensenews.com/news/your-navy/2026/06/02/us-navy-selects-companies-for-at-sea-musv-prototype-testing/",
+      "matchedKeyword": "solicitation",
+      "relevance": "Low",
+      "relevanceScore": 1,
+      "source": "Defense News",
+      "summary": "The U.S. Navy announced on Friday that it had selected seven companies to compete to secure the service’s Medium Unmanned Surface Vessel contract."
+    },
+    {
+      "noticeId": "2c1e9c3a98f654",
+      "title": "US Navy selects companies for at-sea MUSV prototype testing",
+      "agency": "U.S. Navy",
+      "type": "Procurement Signal",
+      "postedDate": "2026-06-02",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.c4isrnet.com/news/your-navy/2026/06/02/us-navy-selects-companies-for-at-sea-musv-prototype-testing/",
+      "matchedKeyword": "solicitation",
+      "relevance": "Low",
+      "relevanceScore": 1,
+      "source": "C4ISRNET",
+      "summary": "The U.S. Navy announced on Friday that it had selected seven companies to compete to secure the service’s Medium Unmanned Surface Vessel contract."
+    }
+  ]
+}
