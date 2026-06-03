@@ -267,7 +267,7 @@ def score(text: str) -> tuple[str, int]:
     pts  = sum(3 for t in HIGH_TERMS   if t in low)
     pts += sum(1 for t in MEDIUM_TERMS if t in low)
     if pts >= 6: return "High",   pts
-    if pts >= 2: return "Medium", pts
+    if pts >= 1: return "Medium", pts
     return "Low", pts
 
 def passes_filter(text: str) -> bool:
@@ -360,6 +360,7 @@ def fetch_gdelt(query: str, cutoff: datetime) -> list[dict]:
 
 
 def fetch_dedicated(name: str, url: str, cutoff: datetime) -> list[dict]:
+    """Include ALL recent articles from curated govtech feeds — scoring handles priority."""
     try:
         feed = feedparser.parse(url)
         results = []
@@ -367,9 +368,7 @@ def fetch_dedicated(name: str, url: str, cutoff: datetime) -> list[dict]:
             if not is_recent(e, cutoff):
                 continue
             txt = text_of(e)
-            if not passes_filter(txt):
-                continue
-            kw = next((t for t in HIGH_TERMS + MEDIUM_TERMS if t in txt.lower()), "keyword match")
+            kw = next((t for t in HIGH_TERMS + MEDIUM_TERMS if t in txt.lower()), "govtech")
             results.append(build_result(e, name, kw))
         return results
     except Exception as ex:
