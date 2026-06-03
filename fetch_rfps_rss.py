@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Civic Federal Lead Generator — RSS Scraper
-==========================================
-Scrapes 30+ federal govtech, defence, and legislative RSS feeds daily.
+Civic Lead Generator — State & Local Gov RSS Scraper
+=====================================================
+Targets state/local government technology sources and uses the GDELT API
+(server-friendly, no auth required) instead of Google News RSS.
 Maintains a rolling 90-day JSON store with deduplication across runs.
-Extracts deadlines from article text where possible.
 
 Setup (one-time):
     pip install feedparser
@@ -12,22 +12,20 @@ Setup (one-time):
 Run manually:
     python fetch_rfps_rss.py
 
-Schedule daily on Windows (Task Scheduler):
-    Action → Start a program
-    Program : python
-    Arguments: "C:\\path\\to\\fetch_rfps_rss.py"
-    Trigger  : Daily at 07:00
+Run with 30-day backfill (first time):
+    python fetch_rfps_rss.py --full
 
-Schedule daily on Mac/Linux (cron):
-    0 7 * * * /usr/bin/python3 /path/to/fetch_rfps_rss.py
+Run as daemon (refreshes every 24h):
+    python fetch_rfps_rss.py --daemon
 """
 
 import argparse
 import hashlib
 import json
 import re
-import time
 import sys
+import time
+import urllib.parse
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -40,95 +38,102 @@ except ImportError:
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
-ROLLING_DAYS   = 90    # keep items for this many days
-LOOKBACK_DAYS  = 2     # only fetch articles newer than this (avoids re-processing)
-RATE_LIMIT_SEC = 0.3   # pause between requests
+ROLLING_DAYS   = 90   # keep items for this many days
+LOOKBACK_DAYS  = 2    # incremental daily lookback
+RATE_LIMIT_SEC = 0.4  # pause between requests (be polite)
 
-# ── Feed catalogue ────────────────────────────────────────────────────────────
+# ── GDELT queries (replaces Google News — works from any server IP) ────────────
+# GDELT aggregates 65,000+ news sources globally. Free, no auth, no IP blocks.
 
-GOOGLE_NEWS_QUERIES = [
-    # Core product signals
-    '"constituent engagement" government',
-    '"civic engagement" government platform',
-    '"community engagement" government software',
-    '"government communications platform"',
-    '"public comment platform" government',
-    '"resident engagement" government technology',
-    '"stakeholder engagement" government software',
-    '"digital engagement" federal agency',
-    # Procurement-specific
-    '"constituent engagement" RFP OR "sources sought" OR solicitation',
-    '"civic technology" federal contract OR procurement',
-    '"community engagement platform" RFP OR bid OR solicitation',
-    '"digital outreach" federal agency contract OR award',
-    # Competitor intel (agencies that buy = warm leads)
-    'Granicus federal contract OR RFP OR award',
-    'Zencity government contract OR award',
-    'PublicInput government procurement OR contract',
-    '"Bang the Table" government contract',
+GDELT_QUERIES = [
+    # Core product signals — civic/constituent engagement
+    '"constituent engagement" software OR platform government',
+    '"civic engagement platform" city OR county OR government',
+    '"community engagement software" government OR municipality',
+    '"resident engagement" platform government technology',
+    '"public participation" platform government RFP OR procurement',
+    '"digital town hall" OR "virtual town hall" government platform',
+    '"government communications platform" RFP OR solicitation',
+    '"public comment platform" government city OR county',
+    '"citizen portal" OR "resident portal" government software',
+    '"311 platform" OR "311 software" city OR county',
+    '"participatory budgeting" platform government',
+    '"open government" platform RFP OR procurement OR contract',
+
+    # Procurement signals — state/local
+    'city OR county "constituent engagement" RFP OR solicitation OR bid',
+    'municipality "community engagement" technology contract OR award',
+    'state government "engagement platform" OR "resident portal" procurement',
+    '"smart city" engagement platform RFP OR procurement',
+    'local government "civic tech" OR "govtech" procurement 2025 OR 2026',
+    '"community input" platform city OR county RFP OR contract',
+    '"public meeting" OR "town hall" software government contract',
+
+    # Competitor intel — agencies buying from competitors = warm leads
+    'Granicus government contract OR RFP OR award OR renewal',
+    'Zencity city OR county government contract OR deployment',
+    'PublicInput government platform contract OR RFP',
+    '"Bang the Table" government engagement contract',
+    'Polco government survey platform city OR county',
+    'SeeClickFix city government contract OR renewal',
     'GovQA government contract OR RFP',
-    # Legislative branch (rarely on SAM.gov)
-    'House Representatives "constituent communications" OR "digital engagement" technology',
-    'Senate "constituent engagement" OR "communications platform" technology',
-    'Congress "civic engagement" platform contract OR procurement',
-    # Key civilian agency buyers
-    'GSA "community engagement" OR "constituent engagement" platform contract',
-    'HHS "community engagement" technology contract OR RFP',
-    'EPA "public comment" OR "community engagement" platform procurement',
-    'USDA "stakeholder engagement" OR "community engagement" technology',
-    'DHS "community engagement" OR "digital outreach" platform',
-    'VA "constituent engagement" OR "community outreach" technology',
-    'Treasury "public engagement" OR "community outreach" platform',
-    # DoD community/civil affairs
-    '"Department of Defense" "community engagement" OR "civil affairs" technology',
-    'Army OR Navy OR "Air Force" "community engagement" platform',
-    # Independent agencies
-    'CFPB "public comment" OR "community engagement" technology',
-    'FCC "community engagement" OR "public participation" platform',
-    'FEMA "community engagement" OR "public outreach" technology',
+
+    # Govtech investment/launch signals
+    'govtech "civic engagement" OR "constituent engagement" funding OR launch',
+    '"civic tech" startup city OR county government contract',
+    'government "digital engagement" platform contract OR award OR RFP',
+    'city manager "community engagement" technology platform',
 ]
 
-GOOGLE_NEWS_BASE = (
-    "https://news.google.com/rss/search?q={query}&hl=en-US&gl=US&ceid=US:en"
+GDELT_BASE = (
+    "https://api.gdeltproject.org/api/v2/doc/doc"
+    "?query={query}&mode=artlist&format=rss&maxrecords=25&sort=datedesc"
+    "&startdatetime={start}"
 )
 
+# ── Dedicated state/local govtech RSS feeds ───────────────────────────────────
+
 DEDICATED_FEEDS = {
-    # ── Executive branch / civilian IT ──────────────────────────────────
-    "FedScoop":              "https://fedscoop.com/feed/",
-    "Nextgov / FCW":         "https://www.nextgov.com/rss/all/",
-    "Federal News Network":  "https://federalnewsnetwork.com/feed/",
-    "Washington Technology": "https://washingtontechnology.com/rss/all.xml",
-    "GCN":                   "https://gcn.com/rss-feeds/all.aspx",
-    "MeriTalk":              "https://www.meritalk.com/feed/",
-    "Government Executive":  "https://www.govexec.com/rss/technology/",
-    "Fedtech Magazine":      "https://fedtechmagazine.com/rss.xml",
-    "Government Technology": "https://www.govtech.com/rss/rss.php",
-    # ── Department of Defense ────────────────────────────────────────────
-    "Defense One":           "https://www.defenseone.com/rss/all/",
-    "Breaking Defense":      "https://breakingdefense.com/feed/",
-    "Defense News":          "https://www.defensenews.com/arc/outboundfeeds/rss/?outputType=xml",
-    "C4ISRNET":              "https://www.c4isrnet.com/arc/outboundfeeds/rss/",
-    # ── Legislative branch & politics ───────────────────────────────────
-    "The Hill":              "https://thehill.com/feed/",
-    "Politico":              "https://www.politico.com/rss/politicopicks.xml",
-    "Roll Call":             "https://rollcall.com/feed/",
-    # ── Broader gov / policy / SLED adjacent ────────────────────────────
-    "Governing Magazine":    "https://www.governing.com/rss/all",
-    "Route Fifty":           "https://www.route-fifty.com/feed/",
-    "Homeland Security Today":"https://www.hstoday.us/feed/",
+    # ── State & local government technology (primary targets) ────────────
+    "StateScoop":               "https://statescoop.com/feed/",
+    "Government Technology":    "https://www.govtech.com/rss/rss.php",
+    "Route Fifty":              "https://www.route-fifty.com/feed/",
+    "Governing Magazine":       "https://www.governing.com/rss/all",
+    "Smart Cities Dive":        "https://www.smartcitiesdive.com/feeds/news/",
+    "GovLoop":                  "https://www.govloop.com/feed/",
+    "American City & County":   "https://www.americancityandcounty.com/feed/",
+    "Cities Today":             "https://cities-today.com/feed/",
+    "Smart Cities World":       "https://smartcitiesworld.net/rss/all-news",
+    "PublicCEO":                "https://www.publicceo.com/feed/",
+    "ELGL":                     "https://elgl.org/feed/",
+    # ── City/county associations ─────────────────────────────────────────
+    "ICMA":                     "https://icma.org/news-rss",
+    "NLC (Natl League of Cities)": "https://www.nlc.org/feed/",
+    # ── Federal govtech (crossover — agencies also buy civic tech) ────────
+    "FedScoop":                 "https://fedscoop.com/feed/",
+    "Nextgov / FCW":            "https://www.nextgov.com/rss/all/",
+    "Federal News Network":     "https://federalnewsnetwork.com/feed/",
+    "Government Executive":     "https://www.govexec.com/rss/technology/",
+    "GCN":                      "https://gcn.com/rss-feeds/all.aspx",
+    "MeriTalk":                 "https://www.meritalk.com/feed/",
 }
 
 
-# ── Scoring config ────────────────────────────────────────────────────────────
+# ── Scoring ───────────────────────────────────────────────────────────────────
 
 HIGH_TERMS = [
+    # Direct product matches
     "constituent engagement", "civic engagement platform",
     "community engagement platform", "community engagement software",
-    "government communications platform", "resident engagement platform",
-    "digital civic engagement", "public comment platform",
-    "stakeholder engagement platform", "civic tech",
-    "constituent communications", "govtech engagement",
-    # Competitor mentions = proven buyer signal
+    "resident engagement platform", "resident portal",
+    "government communications platform", "public comment platform",
+    "digital civic engagement", "citizen engagement platform",
+    "stakeholder engagement platform", "civic tech platform",
+    "constituent communications", "digital town hall",
+    "virtual town hall", "public participation platform",
+    "participatory budgeting", "open government platform",
+    "311 platform", "311 software",
+    # Competitors = proven buyer signal
     "granicus", "zencity", "publicinput", "bang the table",
     "seeclickfix", "govqa", "polco", "civicrm",
 ]
@@ -136,11 +141,13 @@ HIGH_TERMS = [
 MEDIUM_TERMS = [
     "constituent", "civic participation", "community engagement",
     "resident feedback", "public participation", "digital outreach",
-    "government outreach platform", "community input", "public engagement",
+    "government outreach", "community input", "public engagement",
     "citizen engagement", "stakeholder engagement", "digital government",
-    "government software procurement", "govtech", "smart city",
+    "smart city", "govtech", "civic tech", "government software",
     "rfp", "sources sought", "solicitation", "contract award",
-    "market research notice", "pre-solicitation",
+    "pre-solicitation", "market research notice", "bid opportunity",
+    "community portal", "resident app", "government app",
+    "open data", "transparency platform", "e-government",
 ]
 
 FILTER_TERMS = set(HIGH_TERMS + MEDIUM_TERMS)
@@ -150,11 +157,13 @@ COMPETITOR_TERMS = {
     "seeclickfix", "govqa", "polco", "civicrm",
 }
 
+# ── Agency extraction ─────────────────────────────────────────────────────────
+
 AGENCY_PATTERNS = [
+    # Named federal agencies
     (r"\b(GSA|General Services Administration)\b",          "GSA"),
     (r"\b(DHS|Department of Homeland Security)\b",          "DHS"),
     (r"\b(HHS|Health and Human Services)\b",                "HHS"),
-    (r"\b(DoD|Department of Defense|Pentagon)\b",           "DoD"),
     (r"\b(EPA|Environmental Protection Agency)\b",          "EPA"),
     (r"\b(USDA|Department of Agriculture)\b",               "USDA"),
     (r"\b(DOT|Department of Transportation)\b",             "DOT"),
@@ -165,22 +174,26 @@ AGENCY_PATTERNS = [
     (r"\b(CFPB)\b",                                         "CFPB"),
     (r"\b(FCC)\b",                                          "FCC"),
     (r"\b(FEMA)\b",                                         "FEMA"),
-    (r"\b(NIH|National Institutes of Health)\b",            "NIH"),
-    (r"\b(CDC)\b",                                          "CDC"),
-    (r"\b(FBI)\b",                                          "FBI"),
-    (r"\b(State Department|Department of State)\b",         "State Dept"),
-    (r"\b(Energy Department|Department of Energy|DOE)\b",   "DOE"),
-    (r"\b(Interior Department|Department of Interior)\b",   "Interior"),
-    (r"\b(House of Representatives|U\.S\. House|House CAO)\b", "U.S. House"),
-    (r"\b(U\.S\. Senate|Senate SAA)\b",                     "U.S. Senate"),
-    (r"\b(Congress|Congressional)\b",                       "Congress"),
     (r"\b(White House|OMB|OSTP)\b",                         "White House / OMB"),
     (r"\b(CISA)\b",                                         "CISA"),
-    (r"\b(Army|U\.S\. Army)\b",                             "U.S. Army"),
-    (r"\b(Navy|U\.S\. Navy)\b",                             "U.S. Navy"),
-    (r"\b(Air Force)\b",                                    "Air Force"),
-    (r"\b(Marines|Marine Corps)\b",                         "Marine Corps"),
+    (r"\b(Congress|Congressional|House|Senate)\b",          "Congress"),
 ]
+
+def extract_agency(text: str) -> str:
+    low = text.lower()
+    # Check named federal agencies
+    for pattern, label in AGENCY_PATTERNS:
+        if re.search(pattern, text, re.IGNORECASE):
+            return label
+    # State/local detection (broad)
+    if re.search(r'\bcity\s+of\b|\bmunicipal\b|\bmunicipality\b|\bcity\s+council\b|\bcity\s+manager\b', low):
+        return "City Government"
+    if re.search(r'\bcounty\s+of\b|\bcounty\s+government\b|\bcounty\s+commission\b', low):
+        return "County Government"
+    if re.search(r'\bstate\s+of\b|\bstate\s+government\b|\bstatewide\b|\bstate\s+agency\b', low):
+        return "State Government"
+    return "Government"
+
 
 # ── Deadline extraction ───────────────────────────────────────────────────────
 
@@ -190,31 +203,20 @@ MONTH_NAMES = (
 )
 
 DEADLINE_PATTERNS = [
-    # "due by June 15, 2026" / "due June 15"
-    rf'(?:responses?|proposals?|submissions?|white\s+papers?|bids?)\s+(?:are\s+)?due\s+(?:by\s+|on\s+)?'
+    rf'(?:responses?|proposals?|submissions?|bids?)\s+(?:are\s+)?due\s+(?:by\s+|on\s+)?'
     rf'((?:{MONTH_NAMES})\s+\d{{1,2}}(?:,?\s*\d{{4}})?)',
-
-    # "deadline: June 15, 2026" / "deadline is June 15"
     rf'deadline[:\s]+(?:is\s+|of\s+)?((?:{MONTH_NAMES})\s+\d{{1,2}}(?:,?\s*\d{{4}})?)',
-
-    # "closes June 15" / "closes on June 15, 2026"
     rf'(?:solicitation\s+)?closes?\s+(?:on\s+)?((?:{MONTH_NAMES})\s+\d{{1,2}}(?:,?\s*\d{{4}})?)',
-
-    # "submit by June 15" / "respond by July 1, 2026"
     rf'(?:submit|respond|reply)\s+(?:by|before)\s+((?:{MONTH_NAMES})\s+\d{{1,2}}(?:,?\s*\d{{4}})?)',
-
-    # Numeric: "due by 06/30/2026" / "deadline 7/1/26"
     r'(?:due|deadline|closes?)\s+(?:by\s+|on\s+)?(\d{1,2}/\d{1,2}/\d{2,4})',
 ]
 
 DATE_FORMATS = [
     "%B %d, %Y", "%B %d %Y", "%b %d, %Y", "%b %d %Y",
-    "%B %d", "%b %d",
-    "%m/%d/%Y", "%m/%d/%y",
+    "%B %d", "%b %d", "%m/%d/%Y", "%m/%d/%y",
 ]
 
 def extract_deadline(text: str) -> str:
-    """Try to extract a deadline date from article text. Returns YYYY-MM-DD or ''."""
     text_lower = text.lower()
     for pattern in DEADLINE_PATTERNS:
         m = re.search(pattern, text_lower, re.IGNORECASE)
@@ -224,13 +226,11 @@ def extract_deadline(text: str) -> str:
         for fmt in DATE_FORMATS:
             try:
                 dt = datetime.strptime(raw, fmt)
-                # No year in format → use current or next year
                 if "%Y" not in fmt and "%y" not in fmt:
                     now = datetime.now()
                     dt = dt.replace(year=now.year)
                     if dt.date() < now.date():
                         dt = dt.replace(year=now.year + 1)
-                # Sanity check: must be in next 18 months
                 if timedelta(0) <= dt - datetime.now() <= timedelta(days=548):
                     return dt.strftime("%Y-%m-%d")
             except ValueError:
@@ -262,15 +262,9 @@ def text_of(entry) -> str:
         parts.append(entry.content[0].get("value", "") if entry.content else "")
     return " ".join(parts)
 
-def extract_agency(text: str) -> str:
-    for pattern, label in AGENCY_PATTERNS:
-        if re.search(pattern, text, re.IGNORECASE):
-            return label
-    return "Federal Government"
-
 def score(text: str) -> tuple[str, int]:
     low = text.lower()
-    pts = sum(3 for t in HIGH_TERMS   if t in low)
+    pts  = sum(3 for t in HIGH_TERMS   if t in low)
     pts += sum(1 for t in MEDIUM_TERMS if t in low)
     if pts >= 6: return "High",   pts
     if pts >= 2: return "Medium", pts
@@ -289,7 +283,7 @@ def is_recent(entry, cutoff: datetime) -> bool:
                 return dt >= cutoff.replace(tzinfo=timezone.utc)
             except Exception:
                 pass
-    return True
+    return True  # include if we can't determine date
 
 def clean_html(raw: str) -> str:
     return re.sub(r"<[^>]+>", " ", raw or "").strip()[:400]
@@ -324,10 +318,9 @@ def build_result(entry, source_name: str, matched_kw: str) -> dict:
     }
 
 
-# ── Rolling data management ───────────────────────────────────────────────────
+# ── Rolling data store ────────────────────────────────────────────────────────
 
 def load_existing(path: Path) -> dict:
-    """Load existing results, pruning anything older than ROLLING_DAYS."""
     if not path.exists():
         return {}
     try:
@@ -345,21 +338,26 @@ def load_existing(path: Path) -> dict:
         return {}
 
 
-# ── Fetch logic ───────────────────────────────────────────────────────────────
+# ── Fetch functions ───────────────────────────────────────────────────────────
 
-def fetch_google_news(query: str, cutoff: datetime) -> list[dict]:
-    import urllib.parse
-    url = GOOGLE_NEWS_BASE.format(query=urllib.parse.quote(query))
+def fetch_gdelt(query: str, cutoff: datetime) -> list[dict]:
+    """Fetch from GDELT V2 DOC API — works from any server IP, no auth needed."""
+    start = cutoff.strftime("%Y%m%d%H%M%S")
+    url = GDELT_BASE.format(
+        query=urllib.parse.quote(query),
+        start=start,
+    )
     try:
         feed = feedparser.parse(url)
         return [
-            build_result(e, "Google News", query)
+            build_result(e, "GDELT / News", query)
             for e in feed.entries
-            if is_recent(e, cutoff) and passes_filter(text_of(e))
+            if passes_filter(text_of(e))
         ]
     except Exception as ex:
-        print(f"      ⚠  Google News '{query[:45]}': {ex}")
+        print(f"      ⚠  GDELT '{query[:50]}': {ex}")
         return []
+
 
 def fetch_dedicated(name: str, url: str, cutoff: datetime) -> list[dict]:
     try:
@@ -379,15 +377,15 @@ def fetch_dedicated(name: str, url: str, cutoff: datetime) -> list[dict]:
         return []
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# ── Main run logic ────────────────────────────────────────────────────────────
 
 def run_once(args):
-    """Single fetch run. Extracted so daemon mode can call it in a loop."""
     out_path = Path(args.out) if args.out else Path(__file__).parent / "rfp_results.json"
-    cutoff   = datetime.now(timezone.utc) - timedelta(days=(30 if args.full else args.days))
+    lookback = 30 if args.full else args.days
+    cutoff   = datetime.now(timezone.utc) - timedelta(days=lookback)
 
-    print(f"\n📡  Civic Federal Lead Generator  [{datetime.now().strftime('%Y-%m-%d %H:%M')}]")
-    print(f"    Lookback : {args.days if not args.full else 30} days  (since {cutoff.strftime('%Y-%m-%d')})")
+    print(f"\n📡  Civic Lead Generator  [{datetime.now().strftime('%Y-%m-%d %H:%M')}]")
+    print(f"    Lookback : {lookback} days  (since {cutoff.strftime('%Y-%m-%d')})")
     print(f"    Output   : {out_path}\n")
 
     store: dict = {} if args.full else load_existing(out_path)
@@ -400,12 +398,14 @@ def run_once(args):
                 added += 1
         return added
 
-    print(f"🔍  Google News ({len(GOOGLE_NEWS_QUERIES)} queries)...")
-    for q in GOOGLE_NEWS_QUERIES:
-        n = add(fetch_google_news(q, cutoff))
-        if n: print(f"    +{n:>3}  \"{q[:60]}\"")
+    # GDELT news searches
+    print(f"🔍  GDELT news search ({len(GDELT_QUERIES)} queries)...")
+    for q in GDELT_QUERIES:
+        n = add(fetch_gdelt(q, cutoff))
+        if n: print(f"    +{n:>3}  \"{q[:65]}\"")
         time.sleep(RATE_LIMIT_SEC)
 
+    # Dedicated govtech feeds
     print(f"\n📰  Dedicated feeds ({len(DEDICATED_FEEDS)} sources)...")
     for name, url in DEDICATED_FEEDS.items():
         n = add(fetch_dedicated(name, url, cutoff))
@@ -413,15 +413,16 @@ def run_once(args):
         print(f"    {status:>4}  {name}")
         time.sleep(RATE_LIMIT_SEC)
 
+    # Sort and save
     results = sorted(
         store.values(),
         key=lambda r: (-r["relevanceScore"], r.get("deadline") or "9999", r.get("postedDate") or "")
     )
 
-    high  = sum(1 for r in results if r["relevance"] == "High")
-    med   = sum(1 for r in results if r["relevance"] == "Medium")
-    proc  = sum(1 for r in results if r["type"] == "Procurement Signal")
-    ddl   = sum(1 for r in results if r.get("deadline"))
+    high = sum(1 for r in results if r["relevance"] == "High")
+    med  = sum(1 for r in results if r["relevance"] == "Medium")
+    proc = sum(1 for r in results if r["type"] == "Procurement Signal")
+    ddl  = sum(1 for r in results if r.get("deadline"))
 
     output = {
         "fetchedAt":    datetime.now().isoformat(),
@@ -437,22 +438,23 @@ def run_once(args):
 
     out_path.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    print(f"\n✅  {len(results)} leads in store  |  {proc} procurement  |  {high} high  |  {med} medium  |  {ddl} deadlines\n")
+    print(f"\n✅  {len(results)} leads  |  {proc} procurement  |  {high} high  |  {med} medium  |  {ddl} deadlines")
+    print(f"    Saved → {out_path}\n")
     return out_path
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Civic RSS lead scraper (daily)")
+    parser = argparse.ArgumentParser(description="Civic state/local gov lead scraper")
     parser.add_argument("--days",   type=int, default=LOOKBACK_DAYS,
                         help=f"Look back N days for new articles (default: {LOOKBACK_DAYS})")
     parser.add_argument("--full",   action="store_true",
-                        help="Ignore existing data — re-fetch last 30 days from scratch")
+                        help="Re-fetch last 30 days from scratch (good for first run)")
     parser.add_argument("--out",    default=None,
-                        help="Output JSON path (default: rfp_results.json next to this script)")
+                        help="Output JSON path (default: rfp_results.json next to script)")
     parser.add_argument("--daemon", action="store_true",
-                        help="Run continuously — fetch now, then repeat every 24 hours")
+                        help="Run continuously, refreshing every --every hours")
     parser.add_argument("--every",  type=int, default=24,
-                        help="Hours between runs in daemon mode (default: 24)")
+                        help="Hours between daemon runs (default: 24)")
     args = parser.parse_args()
 
     if args.daemon:
@@ -467,7 +469,7 @@ def main():
             except Exception as e:
                 print(f"⚠  Run failed: {e} — will retry next cycle")
             next_run = datetime.now() + timedelta(seconds=interval)
-            print(f"💤  Next run at {next_run.strftime('%Y-%m-%d %H:%M')}  (sleeping {args.every}h)\n")
+            print(f"💤  Next run at {next_run.strftime('%Y-%m-%d %H:%M')}\n")
             try:
                 time.sleep(interval)
             except KeyboardInterrupt:

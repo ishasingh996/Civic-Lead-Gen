@@ -17,7 +17,7 @@ def fetch_loop():
     while True:
         print("🔄  Fetching leads...", flush=True)
         try:
-            subprocess.run(["python", "fetch_rfps_rss.py", "--full"], check=True)
+            subprocess.run(["python", "fetch_rfps_rss.py", "--full", "--days", "30"], check=True)
             print("✅  Fetch complete.", flush=True)
         except Exception as e:
             print(f"⚠  Fetch failed: {e}", flush=True)
