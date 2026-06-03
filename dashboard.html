@@ -489,26 +489,18 @@ document.getElementById('file-input').addEventListener('change', e => {
   reader.readAsText(file);
 });
 
-// ── Auto-load: try GitHub first, then local fallback ─────────────────────────
-const GITHUB_URL = 'https://raw.githubusercontent.com/ishasingh996/Civic-Lead-Gen/main/rfp_results.json';
-
-fetch(GITHUB_URL)
+// ── Auto-load from local rfp_results.json ────────────────────────────────────
+fetch('./rfp_results.json')
   .then(r => {
-    if (!r.ok) throw new Error(`GitHub ${r.status}`);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
     return r.json();
   })
   .then(json => {
     loadData(json);
     const s = document.getElementById('load-status');
-    if (s) s.textContent = '✓ Live data from GitHub';
+    if (s) s.textContent = '✓ Live data loaded';
   })
-  .catch(() => {
-    // Fall back to local copy if GitHub fails or repo is private
-    fetch('./rfp_results.json')
-      .then(r => r.ok ? r.json() : null)
-      .then(json => { if (json) loadData(json); })
-      .catch(() => {});
-  });
+  .catch(() => {});  // silently fail — user can use file picker
 
 // ── Filter listeners ──────────────────────────────────────────────────────────
 ['q','rel-f','typ-f','due-f','src-f'].forEach(id => {
