@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-06-07T12:19:04.496597",
+  "fetchedAt": "2026-06-08T14:44:25.277332",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-03-09",
-    "to": "2026-06-07"
+    "from": "2026-03-10",
+    "to": "2026-06-08"
   },
-  "totalResults": 130,
+  "totalResults": 133,
   "results": [
     {
       "noticeId": "336c34e7a13d0c",
@@ -1957,6 +1957,51 @@
       "relevanceScore": 0,
       "source": "MeriTalk",
       "summary": "By: David Epperson, Knox Systems Federal Advisory Board Member Former Deputy CIO of the Executive Office of the President First CIO &#38; CISO of CISA A new iteration of the Federal Information Technology Acquisition Reform Act, or FITARA 2.0, will be coming because the federal IT mission demands it. First passed in 2014, FITARA was [&#8230;]"
+    },
+    {
+      "noticeId": "8822d455592541",
+      "title": "How self-service is revolutionizing state and local government",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-06-08",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.smartcitiesdive.com/spons/how-self-service-is-revolutionizing-state-and-local-government/822093/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Smart Cities Dive",
+      "summary": "Governments are moving from people-dependent processes to people-centric self-service. Here's why."
+    },
+    {
+      "noticeId": "0ef7d0992c1dd3",
+      "title": "How traffic intelligence helps cities host major sporting events",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-06-08",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.smartcitiesdive.com/spons/how-traffic-intelligence-helps-cities-host-major-sporting-events/820597/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Smart Cities Dive",
+      "summary": "Hosting a big event? Traffic intelligence is essential to prevent gridlock and keep the city moving."
+    },
+    {
+      "noticeId": "dde93d59672d77",
+      "title": "Zero trust, zero guesswork: Securing the defense workforce platform",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-06-08",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://fedscoop.com/zero-trust-zero-guesswork-securing-the-defense-workforce-platform/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "FedScoop",
+      "summary": "Why modern HCM platforms are foundational to workforce security and compliance. \n The post  Zero trust, zero guesswork: Securing the defense workforce platform  appeared first on  FedScoop ."
     }
   ]
 }
