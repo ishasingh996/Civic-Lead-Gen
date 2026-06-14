@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-06-13T12:23:54.479018",
+  "fetchedAt": "2026-06-14T12:59:18.508190",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-03-15",
-    "to": "2026-06-13"
+    "from": "2026-03-16",
+    "to": "2026-06-14"
   },
-  "totalResults": 322,
+  "totalResults": 324,
   "results": [
     {
       "noticeId": "336c34e7a13d0c",
@@ -4837,6 +4837,36 @@
       "relevanceScore": 0,
       "source": "Government Executive",
       "summary": "Section 702 is set to expire for the first time after a failed House vote, even as a White House nomination aims to resolve a separate battle over who should oversee the intelligence community during the transition."
+    },
+    {
+      "noticeId": "1623b0a3b7f206",
+      "title": "Lime to analyse FIFA World Cup travel patterns",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-06-13",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://cities-today.com/lime-to-analyse-fifa-world-cup-travel-patterns/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Cities Today",
+      "summary": "Lime will use the FIFA World Cup 2026 to better understand how residents... \n The post  Lime to analyse FIFA World Cup travel patterns  appeared first on  Cities Today ."
+    },
+    {
+      "noticeId": "441c364f7deb1d",
+      "title": "Anthropic suspends top AI models after U.S. export control order",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-06-13",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.nextgov.com/artificial-intelligence/2026/06/anthropic-suspends-top-ai-models-after-us-export-control-order/414173/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Nextgov / FCW",
+      "summary": "The company said it would disable Fable 5 and Mythos 5 for all customers after the government imposed export controls on those products, citing national security concerns."
     }
   ]
 }
