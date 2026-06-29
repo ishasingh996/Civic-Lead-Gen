@@ -1,10 +1,10 @@
 {
-  "fetchedAt": "2026-06-28T12:15:39.065555",
+  "fetchedAt": "2026-06-29T14:46:43.116053",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-03-30",
-    "to": "2026-06-28"
+    "from": "2026-03-31",
+    "to": "2026-06-29"
   },
   "totalResults": 671,
   "results": [
