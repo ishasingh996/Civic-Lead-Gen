@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-07-03T12:57:00.497414",
+  "fetchedAt": "2026-07-04T12:07:23.794035",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-04-04",
-    "to": "2026-07-03"
+    "from": "2026-04-05",
+    "to": "2026-07-04"
   },
-  "totalResults": 810,
+  "totalResults": 813,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -12157,6 +12157,51 @@
       "relevanceScore": 0,
       "source": "Federal News Network",
       "summary": "CDC leaders say they're planning to resume hiring after a 25% staffing cut last year, but employees say they've heard this months ago without results."
+    },
+    {
+      "noticeId": "0d2326e970bfc6",
+      "title": "Staff shortages strain weapons programs, GAO says",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-03",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/defense-news/2026/07/staff-shortages-strain-weapons-programs-gao-says/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "GAO says Pentagon workforce cuts and a hiring freeze have left major weapons programs short-staffed, risking delays and eroding acquisition expertise."
+    },
+    {
+      "noticeId": "54351372de727f",
+      "title": "Unions sue DoD over termination of collective bargaining agreements",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-03",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/unions/2026/07/unions-sue-dod-over-termination-of-collective-bargaining-agreements/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "The unions argue DoD's decision to terminate collective bargaining reversed its policy to “leave CBAs in place without any reasoned explanation.”"
+    },
+    {
+      "noticeId": "4140f1d2f64613",
+      "title": "Federal Movers & Shakers | July 3, 2026",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-03",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/leadership-connect/2026/07/federal-movers-shakers-july-3-2026/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "Tracking leadership changes across the federal government"
     }
   ]
 }
