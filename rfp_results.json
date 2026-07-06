@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-07-05T12:13:19.597480",
+  "fetchedAt": "2026-07-06T14:29:48.681014",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-04-06",
-    "to": "2026-07-05"
+    "from": "2026-04-07",
+    "to": "2026-07-06"
   },
-  "totalResults": 813,
+  "totalResults": 818,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -12202,6 +12202,81 @@
       "relevanceScore": 0,
       "source": "Federal News Network",
       "summary": "Tracking leadership changes across the federal government"
+    },
+    {
+      "noticeId": "33e06c984ae187",
+      "title": "FedRAMP 2026 is not a compliance update — it’s a new operating model",
+      "agency": "DHS",
+      "type": "News Article",
+      "postedDate": "2026-07-06",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://fedscoop.com/fedramp-2026-compliance-operating-model/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "FedScoop",
+      "summary": "Providers should be ready for a shift toward continuous evidence and away from static documentation, a former DHS CISO argues. \n The post  FedRAMP 2026 is not a compliance update — it’s a new operating model  appeared first on  FedScoop ."
+    },
+    {
+      "noticeId": "7f51e26061f3ef",
+      "title": "How to build agentic AI you can safely rely on",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-06",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/sponsored-content/2026/07/how-to-build-agentic-ai-you-can-safely-rely-on/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "The key to safe, reliable and compliant AI applications starts with context engineering – giving agentic AI a disciplined place to work."
+    },
+    {
+      "noticeId": "44230ad9df7ec1",
+      "title": "Trump says Pulte can declassify ‘whatever’ he wants, sparking fears of exposing intelligence secrets",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-06",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.govexec.com/technology/2026/07/trump-says-pulte-can-declassify-whatever-he-wants-sparking-fears-exposing-intelligence-secrets/414578/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Government Executive",
+      "summary": "“If he doesn’t care about blowing up cyber exploits, putting foreign relationships at risk, or getting people killed, he could declassify a lot,” one former official said."
+    },
+    {
+      "noticeId": "4f1d6ea27a70ca",
+      "title": "Hackers breached DHS information-sharing network, people familiar say",
+      "agency": "DHS",
+      "type": "News Article",
+      "postedDate": "2026-07-06",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.govexec.com/technology/2026/07/hackers-breached-dhs-information-sharing-network-people-familiar-say/414547/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Government Executive",
+      "summary": "The Homeland Security Information Network is used by government, international and private sector partners to share sensitive but unclassified information."
+    },
+    {
+      "noticeId": "5e1e8bdddb4cee",
+      "title": "CIA will take ‘smart risks’ and ‘course correct’ as it adopts AI, director says",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-06",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.govexec.com/technology/2026/07/cia-smart-risks-course-correct-adopts-ai/414546/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Government Executive",
+      "summary": "“We simply can’t afford to wait for a risk-free approach to emerging tech. It doesn’t exist. We have to move fast. We have to be aggressive,” CIA Director John Ratcliffe said."
     }
   ]
 }
