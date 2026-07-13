@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-07-12T11:55:57.350464",
+  "fetchedAt": "2026-07-13T13:19:07.313811",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-04-13",
-    "to": "2026-07-12"
+    "from": "2026-04-14",
+    "to": "2026-07-13"
   },
-  "totalResults": 994,
+  "totalResults": 996,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -14917,6 +14917,36 @@
       "relevanceScore": 0,
       "source": "NLC (Natl League of Cities)",
       "summary": "WASHINGTON, D.C. – The National League of Cities (NLC) has long advocated for Congress and administrations to recognize and increase federal support for local governments’ efforts to improve housing attainability and affordability in cities, towns and villages. The United States Senate on June 22 and the United States House of Representatives on June 23, in bipartisan [&#8230;]\n  Source"
+    },
+    {
+      "noticeId": "7067594114e094",
+      "title": "The challenges, opportunities of open source intelligence for cyber defenders",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-13",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/federal-insights/2026/07/the-challenges-opportunities-of-open-source-intelligence-for-cyber-defenders/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "Experts from the State Department, DIA and Leidos say agencies need to build connected intelligence capabilities and AI tools to augment the human analyst."
+    },
+    {
+      "noticeId": "df5b93b972c975",
+      "title": "Fighting AI with AI requires enduring, new approaches",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-13",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/federal-insights/2026/07/fighting-ai-with-ai-requires-enduring-new-approaches/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "Federal and industry experts say continuous monitoring, evaluation and red teaming can help organizations ensure their AI models are safe and secure."
     }
   ]
 }
