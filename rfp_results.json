@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-07-19T11:54:01.811952",
+  "fetchedAt": "2026-07-20T13:07:02.186894",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-04-20",
-    "to": "2026-07-19"
+    "from": "2026-04-21",
+    "to": "2026-07-20"
   },
-  "totalResults": 1176,
+  "totalResults": 1182,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -17647,6 +17647,96 @@
       "relevanceScore": 0,
       "source": "Federal News Network",
       "summary": "Tracking leadership changes across the federal government"
+    },
+    {
+      "noticeId": "0bec2be8cf3839",
+      "title": "Study finds no parking surge from New York congestion pricing",
+      "agency": "DOT",
+      "type": "News Article",
+      "postedDate": "2026-07-18",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://cities-today.com/study-finds-no-parking-surge-from-new-york-congestion-pricing/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Cities Today",
+      "summary": "New York City&#8217;s congestion pricing scheme did not trigger the feared surge in... \n The post  Study finds no parking surge from New York congestion pricing  appeared first on  Cities Today ."
+    },
+    {
+      "noticeId": "37e485fbcf05c8",
+      "title": "GSA wants other agencies to borrow what's working on tech",
+      "agency": "GSA",
+      "type": "News Article",
+      "postedDate": "2026-07-19",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.govexec.com/technology/2026/07/gsa-wants-other-agencies-borrow-whats-working-tech/414870/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Government Executive",
+      "summary": "After testing successful approaches internally, the agency is inviting federal employees across government to see how they can apply them in their own organizations."
+    },
+    {
+      "noticeId": "7ead73e891f4bc",
+      "title": "Before you buy: Procurement strategies for modern transit fleets",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-20",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.smartcitiesdive.com/spons/before-you-buy-procurement-strategies-for-modern-transit-fleets/824793/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Smart Cities Dive",
+      "summary": "Modern transit fleets start with smart procurement. Here's what to consider before you buy."
+    },
+    {
+      "noticeId": "5b538f64aede5d",
+      "title": "Beyond the stadium: What the World Cup can teach every community about first impressions",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-20",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.smartcitiesdive.com/spons/beyond-the-stadium-what-the-world-cup-can-teach-every-community-about-firs/824872/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Smart Cities Dive",
+      "summary": "Why the visitor experience begins long before the first match and lasts long after the final whistle."
+    },
+    {
+      "noticeId": "24332bbfa41bb8",
+      "title": "City of Lynwood welcomes Joshua Boudreaux as human resources director",
+      "agency": "City Government",
+      "type": "News Article",
+      "postedDate": "2026-07-20",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.publicceo.com/2026/07/city-of-lynwood-welcomes-joshua-boudreaux-as-human-resources-director/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "PublicCEO",
+      "summary": "The City of Lynwood is pleased to announce the appointment of Joshua Boudreaux as the City's new Human Resources Director, effective July 6, 2026. Boudreaux brings more than 15 years of California public sector human resources experience, with expertise in labor relations, employee relations, recruitment, classification and compensation, risk management, organizational development, and employment "
+    },
+    {
+      "noticeId": "499dd2d0ea5f32",
+      "title": "Dems push back against SBA’s plan to overhaul 8(a) eligibility determinations",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-20",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/acquisition-policy/2026/07/dems-push-back-against-sbas-plan-to-overhaul-8a-eligibility-determinations/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "Senators claim SBA's proposed revision \"ignores present-day barriers that entrepreneurs from minority and underserved communities face.\""
     }
   ]
 }
