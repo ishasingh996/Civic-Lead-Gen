@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-07-26T11:59:07.127752",
+  "fetchedAt": "2026-07-27T13:38:38.215138",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-04-27",
-    "to": "2026-07-26"
+    "from": "2026-04-28",
+    "to": "2026-07-27"
   },
-  "totalResults": 1367,
+  "totalResults": 1370,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -20512,6 +20512,51 @@
       "relevanceScore": 0,
       "source": "Federal News Network",
       "summary": "A third-party arbitrator has ordered the IRS to restore telework for its employees. The agency has 30 days to decide if it wants to appeal the decision."
+    },
+    {
+      "noticeId": "dce0d5f2af180c",
+      "title": "How modern roofing and waterproofing solutions protect historic structures",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-07-27",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.smartcitiesdive.com/spons/how-modern-roofing-and-waterproofing-solutions-protect-historic-structures/825720/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Smart Cities Dive",
+      "summary": "How invisible upgrades are saving historic landmarks in cities nationwide."
+    },
+    {
+      "noticeId": "8f5ec7cf6181df",
+      "title": "The walls we rebuilt with cloud modernization",
+      "agency": "NASA",
+      "type": "News Article",
+      "postedDate": "2026-07-27",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://fedscoop.com/federal-government-cloud-modernization-nasa/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "FedScoop",
+      "summary": "Efforts to dissolve the federal government's collaboration fragmentation problem with cloud modernization replaced a human problem with a technical one — and made it worse. \n The post  The walls we rebuilt with cloud modernization  appeared first on  FedScoop ."
+    },
+    {
+      "noticeId": "de4cb986e0e500",
+      "title": "Agentic AI Raises the Stakes for Federal Identity Governance",
+      "agency": "CISA",
+      "type": "News Article",
+      "postedDate": "2026-07-27",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.meritalk.com/agentic-ai-raises-the-stakes-for-federal-identity-governance/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "MeriTalk",
+      "summary": "By: Nick Apostolu, Manager, Product Marketing, Industries, Okta Federal agencies already struggle to govern identities distributed across cloud platforms, legacy systems, contractors, and mission partners. The rise of agentic artificial intelligence (AI) is making that problem more urgent by introducing autonomous software that can retrieve data, call application programming interfaces, and take a"
     }
   ]
 }
