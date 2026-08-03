@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-02T11:59:27.922442",
+  "fetchedAt": "2026-08-03T13:38:58.819572",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-05-04",
-    "to": "2026-08-02"
+    "from": "2026-05-05",
+    "to": "2026-08-03"
   },
-  "totalResults": 1555,
+  "totalResults": 1558,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -23332,6 +23332,51 @@
       "relevanceScore": 0,
       "source": "Government Executive",
       "summary": "“This government has starved for talent,” OPM Director Scott Kupor said during graduation remarks."
+    },
+    {
+      "noticeId": "7d52e476eafed3",
+      "title": "How to stretch your agency’s procurement budget during times of need",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-03",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.smartcitiesdive.com/spons/how-to-stretch-your-agencys-procurement-budget-during-times-of-need/819607/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Smart Cities Dive",
+      "summary": "Three things to keep in mind."
+    },
+    {
+      "noticeId": "c1f927ead6fa8b",
+      "title": "Can direct potable water reuse overcome its image problem in the US?",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-03",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.smartcitiesdive.com/spons/can-direct-potable-water-reuse-overcome-its-image-problem-in-the-us/826102/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Smart Cities Dive",
+      "summary": "From &ldquo;toilet-to-tap&quot; stigma to trusted solution &mdash; reshaping how the U.S. approaches water reuse."
+    },
+    {
+      "noticeId": "00cc19e1021911",
+      "title": "Lawmakers propose giving 2015 OPM breach victims identity protection for life",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-03",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.nextgov.com/cybersecurity/2026/08/lawmakers-propose-giving-2015-opm-breach-victims-identity-protection-life/415166/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Nextgov / FCW",
+      "summary": "The federal government’s coverage for 22.1 million people hoovered up in the China-linked breaches is scheduled to end Sept. 30."
     }
   ]
 }
