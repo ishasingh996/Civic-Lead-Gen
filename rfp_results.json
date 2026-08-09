@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-08T11:25:43.692665",
+  "fetchedAt": "2026-08-09T11:26:15.433017",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-05-10",
-    "to": "2026-08-08"
+    "from": "2026-05-11",
+    "to": "2026-08-09"
   },
-  "totalResults": 1734,
+  "totalResults": 1736,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -26017,6 +26017,36 @@
       "relevanceScore": 0,
       "source": "MeriTalk",
       "summary": "The federal IT beat had a busy week. Again. GSA is changing the playbook. Instead of waiting years for standards and policy reviews, GSA is testing technology first. Then it feeds the lessons learned back into the standards process. CIO David Shive says the old approach could take two to three years. OneGov has already signed more [&#8230;]"
+    },
+    {
+      "noticeId": "f698929314974f",
+      "title": "Former LA mayor Garcetti joins AI company",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-08",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://cities-today.com/former-la-mayor-garcetti-joins-ai-company/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Cities Today",
+      "summary": "Former Los Angeles mayor Eric Garcetti has called on governments to recognise their... \n The post  Former LA mayor Garcetti joins AI company  appeared first on  Cities Today ."
+    },
+    {
+      "noticeId": "1fca479fe1a218",
+      "title": "Voting machine researchers say federal work abruptly ended after Trump ally pushed back on their findings",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-09",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.nextgov.com/cybersecurity/2026/08/voting-machine-researchers-say-federal-work-abruptly-ended-after-trump-ally-pushed-back-their-findings/415300/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Nextgov / FCW",
+      "summary": "Mojave Research executives said at DEF CON that the government had been preparing to expand the company’s election security work, and linked Trump adviser Kurt Olsen to pressure they faced after finding election system vulnerabilities but no evidence votes were altered."
     }
   ]
 }
