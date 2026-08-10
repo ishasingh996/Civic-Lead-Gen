@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-09T11:26:15.433017",
+  "fetchedAt": "2026-08-10T11:47:24.759857",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-05-11",
-    "to": "2026-08-09"
+    "from": "2026-05-12",
+    "to": "2026-08-10"
   },
-  "totalResults": 1736,
+  "totalResults": 1740,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -26047,6 +26047,66 @@
       "relevanceScore": 0,
       "source": "Nextgov / FCW",
       "summary": "Mojave Research executives said at DEF CON that the government had been preparing to expand the company’s election security work, and linked Trump adviser Kurt Olsen to pressure they faced after finding election system vulnerabilities but no evidence votes were altered."
+    },
+    {
+      "noticeId": "905d007f01a722",
+      "title": "Why fleet availability is becoming a defining metric for modern cities",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-10",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.smartcitiesdive.com/spons/why-fleet-availability-is-becoming-a-defining-metric-for-modern-cities/827089/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Smart Cities Dive",
+      "summary": "How cities are improving uptime, controlling costs and supporting essential services."
+    },
+    {
+      "noticeId": "5ba9b15d8d8117",
+      "title": "Good government starts with a good address",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-10",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.smartcitiesdive.com/spons/good-government-starts-with-a-good-address/826946/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Smart Cities Dive",
+      "summary": "Cities can reduce waste and improve services with better citizen address data."
+    },
+    {
+      "noticeId": "24d4fac1a431ea",
+      "title": "America is winning the quantum research race. It could still lose the technology race",
+      "agency": "White House / OMB",
+      "type": "News Article",
+      "postedDate": "2026-08-10",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://fedscoop.com/quantum-computing-race-us-leadership/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "FedScoop",
+      "summary": "Quantum gives the U.S. a chance to embrace fundamental science and practical deployment. \n The post  America is winning the quantum research race. It could still lose the technology race  appeared first on  FedScoop ."
+    },
+    {
+      "noticeId": "40b3475468eba5",
+      "title": "Federal Movers & Shakers | August 7, 2026",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-10",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/leadership-connect/2026/08/federal-movers-shakers-august-7/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "Tracking leadership changes across the federal government"
     }
   ]
 }
