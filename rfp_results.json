@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-16T11:17:24.576390",
+  "fetchedAt": "2026-08-17T11:22:54.716641",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-05-18",
-    "to": "2026-08-16"
+    "from": "2026-05-19",
+    "to": "2026-08-17"
   },
-  "totalResults": 1930,
+  "totalResults": 1932,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -907,6 +907,21 @@
       "relevanceScore": 1,
       "source": "Cities Today",
       "summary": "Coral Gables has spent more than a decade integrating artificial intelligence into its... \n The post  How Coral Gables put AI to work  appeared first on  Cities Today ."
+    },
+    {
+      "noticeId": "cfe19fb592b66a",
+      "title": "Shin-pei Tsay named Boston CIO",
+      "agency": "City Government",
+      "type": "News Article",
+      "postedDate": "2026-08-15",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://cities-today.com/shin-pei-tsay-named-boston-cio/",
+      "matchedKeyword": "open data",
+      "relevance": "Medium",
+      "relevanceScore": 1,
+      "source": "Cities Today",
+      "summary": "Shin-pei Tsay has been appointed Chief Information Officer (CIO) for the City of... \n The post  Shin-pei Tsay named Boston CIO  appeared first on  Cities Today ."
     },
     {
       "noticeId": "28377430fafa45",
@@ -28957,6 +28972,21 @@
       "relevanceScore": 0,
       "source": "Nextgov / FCW",
       "summary": "The White House revives “privateering for the digital age” by authorizing cyber firms to strike foreign targets."
+    },
+    {
+      "noticeId": "fb32db0daff1be",
+      "title": "Labor looks to AI to tackle accommodation requests from disabled employees",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-17",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.govexec.com/technology/2026/08/labor-department-seeks-ai-triage-accommodation-requests-disabled-employees/415438/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Government Executive",
+      "summary": "Employees say they’ve waited months or longer for decisions, as the Labor Department considers using AI to sort requests and flag missing documentation."
     }
   ]
 }
