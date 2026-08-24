@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-23T11:18:12.416004",
+  "fetchedAt": "2026-08-24T11:24:29.515237",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-05-25",
-    "to": "2026-08-23"
+    "from": "2026-05-26",
+    "to": "2026-08-24"
   },
-  "totalResults": 2098,
+  "totalResults": 2100,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -1027,6 +1027,21 @@
       "relevanceScore": 1,
       "source": "PublicCEO",
       "summary": "The City of Vacaville has reached a major milestone for the Vaca Valley Parkway/I-505 Multimodal Improvements Project, formally securing $14,887,000 in federal grant funding following six years of project planning, design, community engagement, and coordination. The federal funding was obligated July 27, 2026, and combines funding from the 2023 Community Project Funding/Congressionally Directed Sp"
+    },
+    {
+      "noticeId": "ed80364003f904",
+      "title": "Enabling AI faster should be the federal government’s focus",
+      "agency": "Government",
+      "type": "Procurement Signal",
+      "postedDate": "2026-08-24",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://fedscoop.com/enabling-ai-faster-should-be-the-federal-governments-focus/",
+      "matchedKeyword": "solicitation",
+      "relevance": "Medium",
+      "relevanceScore": 1,
+      "source": "FedScoop",
+      "summary": "Embracing AI capabilities at a quicker pace is more important than choosing the perfect model. \n The post  Enabling AI faster should be the federal government’s focus  appeared first on  FedScoop ."
     },
     {
       "noticeId": "28377430fafa45",
@@ -31477,6 +31492,21 @@
       "relevanceScore": 0,
       "source": "Federal News Network",
       "summary": "Being aware of a few lesser-known tricks and pitfalls can help federal employees get the most out of their TSP, and subsequently, their retirement."
+    },
+    {
+      "noticeId": "283bb545f67eef",
+      "title": "What AI’s workplace adoption means for government agencies",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-23",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.govexec.com/technology/2026/08/what-ais-workplace-adoption-means-government-agencies/415585/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Government Executive",
+      "summary": "COMMENTARY | Census data shows how workers are using AI in their everyday jobs, while government leaders are testing ways to bring those same practical uses into the public sector."
     }
   ]
 }
