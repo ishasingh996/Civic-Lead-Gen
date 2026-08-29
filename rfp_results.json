@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-08-28T21:17:24.288794",
+  "fetchedAt": "2026-08-29T15:57:07.927899",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-05-30",
-    "to": "2026-08-28"
+    "from": "2026-05-31",
+    "to": "2026-08-29"
   },
-  "totalResults": 2259,
+  "totalResults": 2264,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -33892,6 +33892,81 @@
       "relevanceScore": 0,
       "source": "Government Executive",
       "summary": "The federal human resources agency is exploring new AI tools for USA JOBS, USA Staffing and other USA hiring tools as agencies use AI in their hiring processes, according to the memo."
+    },
+    {
+      "noticeId": "14459269bf2ff7",
+      "title": "This Navy nurse is on a mission to improve kids’ trauma care across military medicine",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-28",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/defense-news/2026/08/this-navy-nurse-is-on-a-mission-to-improve-kids-trauma-care-across-military-medicine/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "\"You want to make sure that you give that child every possibility of recovery. And that's part of deployment medicine,\" Cmdr. Emily Latimer said."
+    },
+    {
+      "noticeId": "0d6db3f4ce42b4",
+      "title": "Time to fix the Afghan Special Immigrant Visa Program",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-28",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/commentary/2026/08/time-to-fix-the-afghan-special-immigrant-visa-siv-program/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "Charles Wintermeyer, a retired Air Force officer and State Department Foreign Service officer, offers 2 ideas for helping former allies in Afghanistan."
+    },
+    {
+      "noticeId": "994ae78642e391",
+      "title": "Help us commemorate the 25th anniversary of the Sept. 11 attacks",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-28",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/remembering-911/2026/08/help-us-commemorate-the-25th-anniversary-of-the-sept-11-attacks/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "Federal News Network wants to commemorate the 20th anniversary of the 9/11 attacks with the help of our audience."
+    },
+    {
+      "noticeId": "312aeb159f08ee",
+      "title": "Evans returns to DHS to lead fraud task force",
+      "agency": "DHS",
+      "type": "News Article",
+      "postedDate": "2026-08-28",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://federalnewsnetwork.com/people/2026/08/evans-returns-to-dhs-to-lead-fraud-task-force/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Federal News Network",
+      "summary": "Karen Evans is coming back to the DHS management directorate after spending the last 18 months working for CISA and FEMA."
+    },
+    {
+      "noticeId": "6d357fa7b09c74",
+      "title": "National Archives says agencies’ AI use does not automatically create federal records",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-08-28",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.govexec.com/technology/2026/08/national-archives-says-agencies-ai-use-does-not-automatically-create-federal-records/415714/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Government Executive",
+      "summary": "New guidance from the National Archives and Records Administration outlines when agencies should preserve AI-related materials as federal records and notes there is no “one size fits all” approach to doing so."
     }
   ]
 }
