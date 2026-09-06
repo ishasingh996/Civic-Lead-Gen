@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-05T13:42:16.485444",
+  "fetchedAt": "2026-09-06T13:56:48.040330",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-06-07",
-    "to": "2026-09-05"
+    "from": "2026-06-08",
+    "to": "2026-09-06"
   },
-  "totalResults": 2322,
+  "totalResults": 2323,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -34837,6 +34837,21 @@
       "relevanceScore": 0,
       "source": "Federal News Network",
       "summary": "Telle replaces Dan Driscoll, who resigned this week amid clashes with Defense Secretary Pete Hegseth."
+    },
+    {
+      "noticeId": "f32f6ad65ce2af",
+      "title": "New lab tests AI tools with cities",
+      "agency": "City Government",
+      "type": "News Article",
+      "postedDate": "2026-09-05",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://cities-today.com/new-lab-tests-ai-tools-with-cities/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Cities Today",
+      "summary": "Local government technology provider CivicPlus has launched a new unit to develop and... \n The post  New lab tests AI tools with cities  appeared first on  Cities Today ."
     }
   ]
 }
