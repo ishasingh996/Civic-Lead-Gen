@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-12T13:54:08.052164",
+  "fetchedAt": "2026-09-13T14:50:13.119218",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-06-14",
-    "to": "2026-09-12"
+    "from": "2026-06-15",
+    "to": "2026-09-13"
   },
-  "totalResults": 2299,
+  "totalResults": 2300,
   "results": [
     {
       "noticeId": "2846b26e9ee045",
@@ -34492,6 +34492,21 @@
       "relevanceScore": 0,
       "source": "Government Executive",
       "summary": "Former intelligence officials describe a nation better equipped to disrupt terrorist plots, but still wrestling with the costs of its response and how to prevent the next crisis under escalating technology threats."
+    },
+    {
+      "noticeId": "d9dc68a8de1095",
+      "title": "How cities can secure EU mobility funding",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-09-12",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://cities-today.com/how-cities-can-secure-eu-mobility-funding/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Cities Today",
+      "summary": "As cities work to reduce emissions, improve accessibility and manage growing transport demands,... \n The post  How cities can secure EU mobility funding  appeared first on  Cities Today ."
     }
   ]
 }
