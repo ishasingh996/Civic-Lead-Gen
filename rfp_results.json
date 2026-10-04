@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-03T15:05:20.901174",
+  "fetchedAt": "2026-10-04T15:39:15.549804",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-07-05",
-    "to": "2026-10-03"
+    "from": "2026-07-06",
+    "to": "2026-10-04"
   },
-  "totalResults": 2394,
+  "totalResults": 2395,
   "results": [
     {
       "noticeId": "361bb683a99296",
@@ -35917,6 +35917,21 @@
       "relevanceScore": 0,
       "source": "Government Executive",
       "summary": "The language includes changes some industry groups have requested through a public comment period and will go into effect Oct. 19."
+    },
+    {
+      "noticeId": "e0d652906c71cc",
+      "title": "Detroit tests traffic signal priority for firefighters",
+      "agency": "City Government",
+      "type": "News Article",
+      "postedDate": "2026-10-03",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://cities-today.com/detroit-tests-traffic-signal-priority-for-firefighters/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Cities Today",
+      "summary": "Detroit is testing whether its existing connected traffic infrastructure can be used to... \n The post  Detroit tests traffic signal priority for firefighters  appeared first on  Cities Today ."
     }
   ]
 }
