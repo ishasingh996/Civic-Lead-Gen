@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-10T16:06:31.539156",
+  "fetchedAt": "2026-10-11T16:33:12.366864",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-07-12",
-    "to": "2026-10-10"
+    "from": "2026-07-13",
+    "to": "2026-10-11"
   },
-  "totalResults": 2399,
+  "totalResults": 2402,
   "results": [
     {
       "noticeId": "361bb683a99296",
@@ -35992,6 +35992,51 @@
       "relevanceScore": 0,
       "source": "Federal News Network",
       "summary": "\"There are 157 federal veterans cemeteries that are run by the VA, in addition to a lot of state veterans cemeteries,\" said Mike Meese."
+    },
+    {
+      "noticeId": "15b024b660e8dc",
+      "title": "London boroughs expand shared e-bike parking",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-10-10",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://cities-today.com/london-boroughs-expand-shared-e-bike-parking/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Cities Today",
+      "summary": "Nine London boroughs have secured nearly £1 million to expand shared e-bike parking... \n The post  London boroughs expand shared e-bike parking  appeared first on  Cities Today ."
+    },
+    {
+      "noticeId": "99a7c65decc36f",
+      "title": "Pittsburgh’s new CIO targets AI and digital modernisation",
+      "agency": "City Government",
+      "type": "News Article",
+      "postedDate": "2026-10-10",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://cities-today.com/pittsburghs-new-cio-targets-ai-and-digital-modernisation/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Cities Today",
+      "summary": "Pittsburgh’s newly appointed CIO, Sylvia Harris, has outlined plans to modernise ageing technology,... \n The post  Pittsburgh’s new CIO targets AI and digital modernisation  appeared first on  Cities Today ."
+    },
+    {
+      "noticeId": "94029b804a2a43",
+      "title": "Cybersecurity executive who helped hacking victims arrested on federal extortion charges",
+      "agency": "Government",
+      "type": "News Article",
+      "postedDate": "2026-10-10",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.nextgov.com/cybersecurity/2026/10/cybersecurity-executive-who-helped-hacking-victims-arrested-federal-extortion-charges/416545/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Nextgov / FCW",
+      "summary": "Ed Dubrovsky’s arrest may be linked to the FBI’s investigation into ShinyHunters. He has built a career advising organizations on cyberattacks and ransom demands."
     }
   ]
 }
