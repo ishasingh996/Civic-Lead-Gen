@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-17T14:05:59.814525",
+  "fetchedAt": "2026-10-18T14:17:36.870758",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-07-19",
-    "to": "2026-10-17"
+    "from": "2026-07-20",
+    "to": "2026-10-18"
   },
-  "totalResults": 2393,
+  "totalResults": 2394,
   "results": [
     {
       "noticeId": "361bb683a99296",
@@ -1449,6 +1449,21 @@
       "summary": "COMMENTARY | Half of FRED's friends are now computers. The St. Louis Fed's response offers a playbook for every agency that publishes data."
     },
     {
+      "noticeId": "83be0fd4dea653",
+      "title": "Miami-Dade innovation model expands across US cities",
+      "agency": "City Government",
+      "type": "Procurement Signal",
+      "postedDate": "2026-10-17",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://cities-today.com/miami-dade-innovation-model-expands-across-us-cities/",
+      "matchedKeyword": "solicitation",
+      "relevance": "Medium",
+      "relevanceScore": 1,
+      "source": "Cities Today",
+      "summary": "A public innovation programme developed in Miami-Dade County is expanding to other US... \n The post  Miami-Dade innovation model expands across US cities  appeared first on  Cities Today ."
+    },
+    {
       "noticeId": "253134fd47c501",
       "title": "FBI is using much more AI than what it previously disclosed",
       "agency": "DHS",
@@ -1462,21 +1477,6 @@
       "relevanceScore": 0,
       "source": "FedScoop",
       "summary": "The agency’s top artificial intelligence leader said the agency has 139 approved use cases, more than double the number of entries in its public AI inventory.  \n The post  FBI is using much more AI than what it previously disclosed  appeared first on  FedScoop ."
-    },
-    {
-      "noticeId": "37e485fbcf05c8",
-      "title": "GSA wants other agencies to borrow what's working on tech",
-      "agency": "GSA",
-      "type": "News Article",
-      "postedDate": "2026-07-19",
-      "deadline": "",
-      "naicsCode": "",
-      "link": "https://www.govexec.com/technology/2026/07/gsa-wants-other-agencies-borrow-whats-working-tech/414870/",
-      "matchedKeyword": "govtech",
-      "relevance": "Low",
-      "relevanceScore": 0,
-      "source": "Government Executive",
-      "summary": "After testing successful approaches internally, the agency is inviting federal employees across government to see how they can apply them in their own organizations."
     },
     {
       "noticeId": "7ead73e891f4bc",
@@ -35902,6 +35902,21 @@
       "relevanceScore": 0,
       "source": "Federal News Network",
       "summary": "AI can boost productivity, but fact-checking its outputs can tax employees. Here’s what can help, says Maximus’ David Chou."
+    },
+    {
+      "noticeId": "f567b7ebed7348",
+      "title": "OpenAI and Rockefeller launch US$50 million cities AI fund",
+      "agency": "City Government",
+      "type": "News Article",
+      "postedDate": "2026-10-17",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://cities-today.com/openai-and-rockefeller-launch-us50-million-cities-ai-fund/",
+      "matchedKeyword": "govtech",
+      "relevance": "Low",
+      "relevanceScore": 0,
+      "source": "Cities Today",
+      "summary": "The OpenAI Foundation and The Rockefeller Foundation have launched a US$50 million funding... \n The post  OpenAI and Rockefeller launch US$50 million cities AI fund  appeared first on  Cities Today ."
     }
   ]
 }
