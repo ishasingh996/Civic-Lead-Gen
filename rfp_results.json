@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-14T16:52:38.984660",
+  "fetchedAt": "2026-11-15T17:36:15.164901",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-08-16",
-    "to": "2026-11-14"
+    "from": "2026-08-17",
+    "to": "2026-11-15"
   },
-  "totalResults": 2370,
+  "totalResults": 2371,
   "results": [
     {
       "noticeId": "361bb683a99296",
@@ -1492,6 +1492,21 @@
       "relevanceScore": 1,
       "source": "GovLoop",
       "summary": "In this video interview, Glen Deskin of Check Point Software discusses how to defend online services without interrupting access."
+    },
+    {
+      "noticeId": "a90223ed21d89b",
+      "title": "My Cup of IT: The FAA: Welcome to the Real World. Please Fasten Your Seatbelts.",
+      "agency": "Congress",
+      "type": "News Article",
+      "postedDate": "2026-11-14",
+      "deadline": "",
+      "naicsCode": "",
+      "link": "https://www.meritalk.com/the-faa-welcome-to-the-real-world-please-fasten-your-seatbelts/",
+      "matchedKeyword": "contract award",
+      "relevance": "Medium",
+      "relevanceScore": 1,
+      "source": "MeriTalk",
+      "summary": "Before Sean Duffy was running the nation’s transportation system, he was living in The Real World: Boston and competing on Road Rules: All Stars. Now he’s starring in a new reality series: The FAA Challenge – where the contestants are contractors, the prize is billions in taxpayer dollars, and the audience is stuck at the [&#8230;]"
     },
     {
       "noticeId": "fb32db0daff1be",
