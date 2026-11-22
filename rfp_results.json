@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-21T17:55:07.833247",
+  "fetchedAt": "2026-11-22T18:14:00.471129",
   "dataSource": "rss",
   "rollingDays": 90,
   "dateRange": {
-    "from": "2026-08-23",
-    "to": "2026-11-21"
+    "from": "2026-08-24",
+    "to": "2026-11-22"
   },
-  "totalResults": 2398,
+  "totalResults": 2397,
   "results": [
     {
       "noticeId": "361bb683a99296",
@@ -1507,21 +1507,6 @@
       "relevanceScore": 1,
       "source": "PublicCEO",
       "summary": "The post  Santa Ana suspends use of Flock Safety cameras  appeared first on  PublicCEO ."
-    },
-    {
-      "noticeId": "283bb545f67eef",
-      "title": "What AI’s workplace adoption means for government agencies",
-      "agency": "Government",
-      "type": "News Article",
-      "postedDate": "2026-08-23",
-      "deadline": "",
-      "naicsCode": "",
-      "link": "https://www.govexec.com/technology/2026/08/what-ais-workplace-adoption-means-government-agencies/415585/",
-      "matchedKeyword": "govtech",
-      "relevance": "Low",
-      "relevanceScore": 0,
-      "source": "Government Executive",
-      "summary": "COMMENTARY | Census data shows how workers are using AI in their everyday jobs, while government leaders are testing ways to bring those same practical uses into the public sector."
     },
     {
       "noticeId": "74956358b9e63d",
